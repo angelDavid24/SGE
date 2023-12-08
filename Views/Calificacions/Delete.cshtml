@@ -1,0 +1,39 @@
+﻿@model SGE.Models.Calificacion
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Eliminar</h1>
+
+<h3>¿Estas seguro de eliminar el registro?</h3>
+<div>
+    <h4>Calificacion</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            Matería@* @Html.DisplayNameFor(model => model.Materia) *@
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Materia.Nombre)
+        </dd>
+        <dt class = "col-sm-2">
+            Alumno@* @Html.DisplayNameFor(model => model.Alumno) *@
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Alumno.Nombre)
+        </dd>
+        <dt class = "col-sm-2">
+            Calificación@* @Html.DisplayNameFor(model => model.Valor) *@
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Valor)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="CalificacionId" class="btn btn-light" />
+        <input type="submit" value="Eliminar" class="btn btn-danger" /> |
+        <a asp-action="Index" class="btn btn-light">Regresar</a>
+    </form>
+</div>

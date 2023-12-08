@@ -1,0 +1,47 @@
+﻿@model IEnumerable<SGE.Models.Calificacion>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Calificaciones</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-success">Registrar nuevo</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Materia)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Alumno)
+            </th>
+            <th>
+                Calificación@* @Html.DisplayNameFor(model => model.Valor) *@
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Materia.Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Alumno.Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Valor)
+            </td>
+            <td>
+                    <a asp-action="Edit" asp-route-id="@item.CalificacionId" class="btn btn-primary">Modificar</a> |
+                    <a asp-action="Details" asp-route-id="@item.CalificacionId" class="btn btn-info">Ver</a> |
+                    <a asp-action="Delete" asp-route-id="@item.CalificacionId" class="btn btn-danger">Eliminar</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

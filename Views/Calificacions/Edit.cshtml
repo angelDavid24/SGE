@@ -1,0 +1,44 @@
+﻿@model SGE.Models.Calificacion
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Modificar</h1>
+
+<h4>Calificacion</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="CalificacionId" />
+            <div class="form-group">
+                <label asp-for="MateriaId" class="control-label">Materia</label>
+                <select asp-for="MateriaId" class="form-control" asp-items="ViewBag.MateriaId"></select>
+                <span asp-validation-for="MateriaId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AlumnoId" class="control-label">Alumno</label>
+                <select asp-for="AlumnoId" class="form-control" asp-items="ViewBag.AlumnoId"></select>
+                <span asp-validation-for="AlumnoId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Valor" class="control-label">Calificación</label>
+                <input asp-for="Valor" class="form-control" />
+                <span asp-validation-for="Valor" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Guardar Cambios" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index" class="btn btn-light">Regresar</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
